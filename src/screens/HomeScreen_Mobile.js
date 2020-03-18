@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, Grid, Typography, withStyles} from '@material-ui/core'
 import image from '../../assets/icon_sm.png'
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
+import MapCreator from './MapCreation'
 
 function HomeScreen_Mobile(props) {
     const classes = props.classes;
@@ -37,7 +38,7 @@ function HomeScreen_Mobile(props) {
                         <div>qr</div>
                     </Route>
                     <Route exact path={"/createMap"}>
-                        <div>createMap</div>
+                        <MapCreator />
                     </Route>
                     <Route exact path={"/login"}>
                         <div>login</div>
