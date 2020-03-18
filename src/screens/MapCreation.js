@@ -1,6 +1,6 @@
 import React from 'react'
 import * as THREE from 'three'
-import icon from '../assets/icon.png'
+import icon from '../../assets/icon_sm.png'
 import Grid from "@material-ui/core/Grid";
 import {withStyles} from "@material-ui/core";
 import {MapControls} from 'three/examples/jsm/controls/OrbitControls.js';
