@@ -6,7 +6,7 @@ import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 function HomeScreen_Mobile(props) {
     const classes = props.classes;
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/tailored-maps-v1">
             <div className={classes.main}>
                 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"/>
                 <Switch>
