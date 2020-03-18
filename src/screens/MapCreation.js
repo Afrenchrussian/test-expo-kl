@@ -1,13 +1,13 @@
 import React from 'react'
 import * as THREE from 'three'
-import icon from '../../assets/icon_sm.png'
+import icon from '../assets/icon.png'
 import Grid from "@material-ui/core/Grid";
 import {withStyles} from "@material-ui/core";
 import {MapControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {GoogleOutlined, LogoutOutlined, ToolOutlined} from '@ant-design/icons'
 import Button from "@material-ui/core/Button";
 
-function MapCreation(props) {
+function MapCreator(props) {
 
     let camera, controls, scene, renderer;
 
@@ -29,7 +29,7 @@ function MapCreation(props) {
         camera.position.set(400, 200, 0);
 
         // controls
-
+        renderer.domElement.id = "canvas";
         controls = new MapControls(camera, renderer.domElement);
 
         //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
@@ -88,9 +88,11 @@ function MapCreation(props) {
 
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
+        document.body.removeChild(document.getElementById('canvas'));
 
         renderer.setSize(window.innerWidth, window.innerHeight - 110);
-
+        
+        document.body.appendChild(renderer.domElement)
     }
 
     function animate() {
@@ -169,4 +171,4 @@ const styles = {
     }
 };
 
-export default withStyles(styles)(MapCreation)
+export default withStyles(styles)(MapCreator)
