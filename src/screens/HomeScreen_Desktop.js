@@ -1,6 +1,6 @@
 import React from 'react'
 import {withStyles, Grid} from '@material-ui/core'
-import image from '../../../assets/icon_sm.png'
+import image from '../../assets/icon_sm.png'
 
 function HomeScreen_Desktop(props) {
     const classes = props.classes;

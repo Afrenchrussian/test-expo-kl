@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Grid, Typography, withStyles} from '@material-ui/core'
-import image from '../../../assets/icon_sm.png'
+import image from '../../assets/icon_sm.png'
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 
 function HomeScreen_Mobile(props) {
