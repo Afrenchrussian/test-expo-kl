@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+  - 10.13.0
+
+cache:
+  npm: true
+  directories:
+    - ~/.npm
+
+branches:
+  except:
+    - gh-pages
+    - app
+    - master
+  only:
+    - webpage
+
+before_script:
+  - npm install -g npm@latest
+  - sudo sysctl fs.inotify.max_user_instances=524288
+  - sudo sysctl fs.inotify.max_user_watches=524288
+  - sudo sysctl fs.inotify.max_queued_events=524288
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  local_dir: ./src/dist
+  project_name: 'Tailored Maps Webpage'
+  on:
+    branch: master
+  target_branch: gh-pages
