@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import * as THREE from 'three'
 import icon from '../../assets/icon_sm.png'
 import Grid from "@material-ui/core/Grid";
@@ -22,8 +22,8 @@ function MapCreator(props) {
 
         renderer = new THREE.WebGLRenderer({antialias: true});
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight - 110);
-        document.body.appendChild(renderer.domElement);
+        renderer.setSize(window.innerWidth, window.innerHeight - 220);
+        document.getElementById("index").appendChild(renderer.domElement);
 
         camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000000);
         camera.position.set(400, 200, 0);
@@ -84,15 +84,19 @@ function MapCreator(props) {
 
     }
 
+    useEffect(() => {
+        document.getElementById("index").appendChild(renderer.domElement)
+    })
+
     function onWindowResize() {
 
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        document.body.removeChild(document.getElementById('canvas'));
+        document.getElementById("index").removeChild(document.getElementById('canvas'));
 
-        renderer.setSize(window.innerWidth, window.innerHeight - 110);
+        renderer.setSize(window.innerWidth, window.innerHeight - 220);
 
-        document.body.appendChild(renderer.domElement)
+        document.getElementById("index").appendChild(renderer.domElement)
     }
 
     function animate() {
@@ -115,7 +119,7 @@ function MapCreator(props) {
     return (
         <div>
             <div className={classes.topBuffer}>
-                <img src={icon} className={classes.image} alt={'xx'}/>
+                <img src={icon} className={classes.image}/>
             </div>
             <div className={classes.ui}>
                 <Grid container direction="row" justify="space-evenly" alignItems="center">
@@ -142,24 +146,24 @@ function MapCreator(props) {
 
 const styles = {
     topBuffer: {
-        height: '55px'
+        height: '110px'
     },
     ui: {
         zIndex: 1,
         position: 'absolute',
         bottom: '0px',
-        height: '55px',
+        height: '110px',
         width: '100%'
     },
     image: {
-        height: '42px',
+        height: '82px',
         marginLeft: '50%',
         transform: 'translateX(-50%)',
         marginTop: '6px'
     },
     item: {
         textAlign: 'center',
-        height: '55px'
+        height: '110px'
     },
     icon: {
         marginTop: '3px',
@@ -167,7 +171,7 @@ const styles = {
     },
     buttons: {
         width: '100%',
-        height: '55px'
+        height: '110px'
     }
 };
 

@@ -8,10 +8,10 @@ function HomeScreen_Mobile(props) {
     const classes = props.classes;
     return (
         <BrowserRouter basename="/tailored-maps-v1">
-            <div className={classes.main}>
-                <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"/>
-                <Switch>
-                    <Route exact path={"/"}>
+            <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"/>
+            <Switch>
+                <Route exact path={"/"}>
+                    <div className={classes.main}>
                         <img src={image} className={classes.logo}/>
                         <Typography className={classes.title}>
                             Tailored Maps
@@ -33,18 +33,18 @@ function HomeScreen_Mobile(props) {
                                 </Link>
                             </Grid>
                         </Grid>
-                    </Route>
-                    <Route exact path={"/qrScanner"}>
-                        <div>qr</div>
-                    </Route>
-                    <Route exact path={"/createMap"}>
-                        <MapCreator />
-                    </Route>
-                    <Route exact path={"/login"}>
-                        <div>login</div>
-                    </Route>
-                </Switch>
-            </div>
+                    </div>
+                </Route>
+                <Route exact path={"/qrScanner"}>
+                    <div>qr</div>
+                </Route>
+                <Route exact path={"/createMap"}>
+                    <MapCreator/>
+                </Route>
+                <Route exact path={"/login"}>
+                    <div>login</div>
+                </Route>
+            </Switch>
         </BrowserRouter>
     )
 }

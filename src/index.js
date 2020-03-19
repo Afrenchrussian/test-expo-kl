@@ -5,7 +5,9 @@ import HomeScreen_Mobile from './screens/HomeScreen_Mobile.js'
 import HomeScreen_Desktop from "./screens/HomeScreen_Desktop";
 import mobile from 'is-mobile'
 
-const Screen = (mobile())? HomeScreen_Mobile : HomeScreen_Desktop;
+//const Screen = (mobile())? HomeScreen_Mobile : HomeScreen_Desktop;
+
+const Screen = HomeScreen_Mobile;
 
 ReactDOM.render(
     <Screen />
