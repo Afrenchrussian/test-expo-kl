@@ -1,0 +1,1 @@
+https://travis-ci.org/Afrenchrussian/tailored-maps-v1.svg?branch=webpage
